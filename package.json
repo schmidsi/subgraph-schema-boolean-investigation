@@ -8,11 +8,13 @@
     "create-local": "graph create --node http://localhost:8020/ punks",
     "remove-local": "graph remove --node http://localhost:8020/ punks",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 punks",
-    "test": "graph test"
+    "test": "graph test crypto-punks --version 0.5.4"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.42.4",
     "@graphprotocol/graph-ts": "0.29.1"
   },
-  "devDependencies": { "matchstick-as": "0.5.0" }
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  }
 }
