@@ -5,6 +5,9 @@ type Assign @entity(immutable: true) {
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
+  test: Boolean
+  testRequired: Boolean!
+  testNumberOptional: BigInt
 }
 
 type Transfer @entity(immutable: true) {
@@ -15,7 +18,6 @@ type Transfer @entity(immutable: true) {
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
-  test: Boolean
 }
 
 type PunkTransfer @entity(immutable: true) {

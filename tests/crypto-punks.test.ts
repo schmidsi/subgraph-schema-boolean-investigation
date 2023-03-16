@@ -6,8 +6,9 @@ import {
   beforeAll,
   afterAll,
   logStore,
+  log,
 } from "matchstick-as/assembly/index";
-import { Address, BigInt } from "@graphprotocol/graph-ts";
+import { Address, BigInt, Bytes } from "@graphprotocol/graph-ts";
 import { Assign } from "../generated/schema";
 import { Assign as AssignEvent } from "../generated/CryptoPunks/CryptoPunks";
 import { handleAssign } from "../src/crypto-punks";
@@ -22,6 +23,14 @@ describe("Describe entity assertions", () => {
     let punkIndex = BigInt.fromI32(234);
     let newAssignEvent = createAssignEvent(to, punkIndex);
     handleAssign(newAssignEvent);
+
+    let stored = Assign.load(
+      Bytes.fromHexString("0xa16081f360e3847006db660bae1c6d1b2e17ec2a01000000")
+    )!;
+
+    let value = stored.test;
+
+    // log.info("Stored entity: {}", [stored.test.toString()]);
 
     logStore(); // Uncomment to print the store
   });
